@@ -1,18 +1,16 @@
-# 氣泡排序法
-def bubbleSort(a):
-    L = len(a)
-    sum = 0
-    for i in range(L-1):
-        for i in range(L-1):
-            if a[i] > a[i+1]:
-                a[i], a[i+1] = a[i+1], a[i]
-                sum += 1
-    return sum
+def solve(n, nums):
+    count = 0
+    while (n > 1):
+        n -= 1
+        for i in range(n):
+            if nums[i] > nums[i+1]:
+                nums[i], nums[i+1] = nums[i+1], nums[i]
+                count += 1
+    return f'Optimal train swapping takes {count} swaps.'
 
 
-n = int(input())
-for i in range(n):
-    l = int(input())
-    a = list(map(int, input().split(" ")))
-    sum = bubbleSort(a)
-    print("Optimal train swapping takes {} swaps.".format(sum))
+T = int(input())
+for i in range(T):
+    n = int(input())
+    nums = list(map(int, input().split(" ")))
+    print(solve(n, nums))
